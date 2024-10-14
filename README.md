@@ -64,6 +64,9 @@ batch execution.
 - Update performance graph between DAGguise, FST-BTA and Baseline (insecure) -> Figure 9
   "checkpoint/docdist/runscript.sh dag_generator/defense.json eval_scripts/7_plot_fig9.sh  eval_scripts/simu_common/docDist_2cpu_DAGguise.sh eval_scripts/simu_common/docDist_2cpu_FSBTA.sh   eval_scripts/simu_common/docDist_2cpu_regular.sh eval_scripts/simu_single/runscript.sh  sample_programs/docdist/Makefile checkpoint/docdist/cpt.1293351707616/ checkpoint/docdist/m5_merge/ checkpoint/docdist/results/ eval_scripts/4_merge_checkpoint_single_all.sh eval_scripts/6_run_simu_single_all_sequentially.sh eval_scripts/create_checkpoints.sh  eval_scripts/ckptscript.sh eval_scripts/simu_simple/ plot_scripts/2cpu.pdf sample_programs/docdist/docDist sample_programs/docdist/docDist_checkpoint "
 
+- [Checkpoint Link 50 Mn ASC](https://iitbacin-my.sharepoint.com/:f:/g/personal/ravichoubey_iitb_ac_in/EgwHUGfqcQNCubMMq5bSIlwBPv6OtqiTH5fi3HpqEHorsg?e=8jvSUd)
+- [Merged_Checkpoint 50 Mn ASC SPEC and DOCDIST](https://iitbacin-my.sharepoint.com/:f:/g/personal/ravichoubey_iitb_ac_in/EmhTnVQP1PFNnPBKJlH6ttQBG2pp49uqk-4KzASkXBEb8g?e=nND4HZ)
+
 
 
  
