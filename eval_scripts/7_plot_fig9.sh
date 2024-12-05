@@ -9,5 +9,9 @@ if [[ -z "$SPEC_ROOT" ]]; then
 fi
 
 cd $GEM5_ROOT/plot_scripts/
-python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_condor/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
+#python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_condor/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
+#python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
+python3 plot_2cpu_print.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
+#python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_regular
+#python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise
 cd -
