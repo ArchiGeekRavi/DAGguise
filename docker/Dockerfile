@@ -19,6 +19,8 @@ RUN apt update && \
     python3-six \
     python \
     python-pip \
+    python3 \
+    python3-pip \
     libboost-all-dev \
     pkg-config \
     wget \
@@ -29,7 +31,12 @@ RUN apt update && \
     gcc \
     gdb \
     libpng-dev \
-    cmake
+    cmake \
+    libblas3 \
+    liblapack3 \
+    liblapack-dev \
+    libblas-dev \
+    gfortran
 
 RUN pip install --upgrade pip && pip install scons && \
     cp -r /usr/local/lib/python2.7/dist-packages/scons* \
@@ -49,13 +56,13 @@ USER user
 WORKDIR /home/user
 
 ENV GEM5_ROOT=/home/user/dagguise
-ENV WORKLOADS_ROOT=/home/user/SPEC_2017
+ENV WORKLOADS_ROOT=/opt/spec2017
 
 WORKDIR /home/user
 RUN wget https://downloads.python.org/pypy/pypy3.7-v7.3.3-linux64.tar.bz2 && \
     tar -xf pypy3.7-v7.3.3-linux64.tar.bz2 && rm pypy3.7-v7.3.3-linux64.tar.bz2 && \
     mv pypy3.7-v7.3.3-linux64 .pypy3 && cd .pypy3/bin && \
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+    curl https://bootstrap.pypa.io/pip/3.7/get-pip.py -o get-pip.py && \
     ./pypy3 get-pip.py && ./pip3 install virtualenv
 
 RUN mkdir .virtualenv && cd .virtualenv && \
@@ -64,8 +71,7 @@ RUN mkdir .virtualenv && cd .virtualenv && \
 
 COPY --chown=user . /home/user/dagguise
 WORKDIR /home/user/dagguise
-RUN . /home/user/.virtualenv/asplos/bin/activate && \
-    pip3 install -r eval_scripts/requirements.txt 
+RUN . /home/user/.virtualenv/asplos/bin/activate && pip3 install -r eval_scripts/requirements.txt 
     
 RUN scons build/X86/gem5.opt -j$(nproc)
 CMD ["/bin/bash"]
