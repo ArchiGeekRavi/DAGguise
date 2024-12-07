@@ -15,7 +15,9 @@ assert(specroot is not None)
 
 
 df = pd.DataFrame(columns = ["test", "chkptnum", "cpu0_ipc", "cpu1_ipc", "ticks"])
-exprs = ['blender_r', 'cactuBSSN_r', 'cam4_r', 'deepsjeng_r', 'exchange2_r', 'fotonik3d_r', 'lbm_r', 'leela_r', 'nab_r', 'namd_r', 'povray_r','roms_r', 'wrf_r', 'x264_r', 'xz_r']
+#exprs = ['blender_r', 'cactuBSSN_r', 'cam4_r', 'deepsjeng_r', 'exchange2_r', 'fotonik3d_r', 'lbm_r', 'leela_r', 'nab_r', 'namd_r', 'povray_r','roms_r', 'wrf_r', 'x264_r', 'xz_r']
+exprs = ['blender_r', 'cactuBSSN_r', 'deepsjeng_r', 'exchange2_r', 'fotonik3d_r', 'lbm_r', 'leela_r', 'nab_r', 'namd_r', 'povray_r','roms_r', 'wrf_r', 'x264_r', 'xz_r']
+
 
 weightDict = dict()
 
