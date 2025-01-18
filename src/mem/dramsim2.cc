@@ -46,43 +46,46 @@
 #include "debug/Drain.hh"
 #include "sim/system.hh"
 
-DRAMSim2::DRAMSim2(const Params* p) :
-    AbstractMemory(p),
-    port(name() + ".port", *this),
-    wrapper(p->deviceConfigFile, p->systemConfigFile, p->filePath,
-            p->traceFile, p->defenceFile, p->defenceFile2, p->range.size() / 1024 / 1024, p->outputFile, p->enableDebug),
-    retryReq(false), retryResp(false), startTick(0),
-    nbrOutstandingReads(0), nbrOutstandingWrites(0),
-    sendResponseEvent([this]{ sendResponse(); }, name()),
-    tickEvent([this]{ tick(); }, name())
+DRAMSim2::DRAMSim2(const Params *p) : AbstractMemory(p),
+                                      port(name() + ".port", *this),
+                                      wrapper(p->deviceConfigFile, p->systemConfigFile, p->filePath,
+                                              p->traceFile, p->defenceFile, p->defenceFile2, p->range.size() / 1024 / 1024, p->outputFile, p->enableDebug),
+                                      retryReq(false), retryResp(false), startTick(0),
+                                      nbrOutstandingReads(0), nbrOutstandingWrites(0),
+                                      sendResponseEvent([this]
+                                                        { sendResponse(); }, name()),
+                                      tickEvent([this]
+                                                { tick(); }, name())
 {
     DPRINTF(DRAMSim2,
             "Instantiated DRAMSim2 with clock %d ns and queue size %d\n",
             wrapper.clockPeriod(), wrapper.queueSize());
 
-    DRAMSim::TransactionCompleteCB* read_cb =
+    DRAMSim::TransactionCompleteCB *read_cb =
         new DRAMSim::Callback<DRAMSim2, void, unsigned, uint64_t, uint64_t>(
             this, &DRAMSim2::readComplete);
-    DRAMSim::TransactionCompleteCB* write_cb =
+    DRAMSim::TransactionCompleteCB *write_cb =
         new DRAMSim::Callback<DRAMSim2, void, unsigned, uint64_t, uint64_t>(
             this, &DRAMSim2::writeComplete);
     wrapper.setCallbacks(read_cb, write_cb);
 
     // Register a callback to compensate for the destructor not
     // being called. The callback prints the DRAMSim2 stats.
-    Callback* cb = new MakeCallback<DRAMSim2Wrapper,
-        &DRAMSim2Wrapper::printStats>(wrapper);
+    Callback *cb = new MakeCallback<DRAMSim2Wrapper,
+                                    &DRAMSim2Wrapper::printStats>(wrapper);
     registerExitCallback(cb);
 }
 
-void
-DRAMSim2::init()
+void DRAMSim2::init()
 {
     AbstractMemory::init();
 
-    if (!port.isConnected()) {
+    if (!port.isConnected())
+    {
         fatal("DRAMSim2 %s is unconnected!\n", name());
-    } else {
+    }
+    else
+    {
         port.sendRangeChange();
     }
 
@@ -91,8 +94,7 @@ DRAMSim2::init()
               wrapper.burstSize(), system()->cacheLineSize());
 }
 
-void
-DRAMSim2::startup()
+void DRAMSim2::startup()
 {
     startTick = curTick();
 
@@ -100,8 +102,7 @@ DRAMSim2::startup()
     schedule(tickEvent, clockEdge());
 }
 
-void
-DRAMSim2::sendResponse()
+void DRAMSim2::sendResponse()
 {
     assert(!retryResp);
     assert(!responseQueue.empty());
@@ -109,7 +110,8 @@ DRAMSim2::sendResponse()
     DPRINTF(DRAMSim2, "Attempting to send response\n");
 
     bool success = port.sendTimingResp(responseQueue.front());
-    if (success) {
+    if (success)
+    {
         responseQueue.pop_front();
 
         DPRINTF(DRAMSim2, "Have %d read, %d write, %d responses outstanding\n",
@@ -121,7 +123,9 @@ DRAMSim2::sendResponse()
 
         if (nbrOutstanding() == 0)
             signalDrainDone();
-    } else {
+    }
+    else
+    {
         retryResp = true;
 
         DPRINTF(DRAMSim2, "Waiting for response retry\n");
@@ -136,14 +140,14 @@ DRAMSim2::nbrOutstanding() const
     return nbrOutstandingReads + nbrOutstandingWrites + responseQueue.size();
 }
 
-void
-DRAMSim2::tick()
+void DRAMSim2::tick()
 {
     wrapper.tick();
 
     // is the connected port waiting for a retry, if so check the
     // state and send a retry if conditions have changed
-    if (retryReq && nbrOutstanding() < wrapper.queueSize()) {
+    if (retryReq && nbrOutstanding() < wrapper.queueSize())
+    {
         retryReq = false;
         port.sendRetryReq();
     }
@@ -151,8 +155,7 @@ DRAMSim2::tick()
     schedule(tickEvent, curTick() + wrapper.clockPeriod() * SimClock::Int::ns);
 }
 
-Tick
-DRAMSim2::recvAtomic(PacketPtr pkt)
+Tick DRAMSim2::recvAtomic(PacketPtr pkt)
 {
     access(pkt);
 
@@ -160,8 +163,7 @@ DRAMSim2::recvAtomic(PacketPtr pkt)
     return pkt->cacheResponding() ? 0 : 50000;
 }
 
-void
-DRAMSim2::recvFunctional(PacketPtr pkt)
+void DRAMSim2::recvFunctional(PacketPtr pkt)
 {
     pkt->pushLabel(name());
 
@@ -174,11 +176,11 @@ DRAMSim2::recvFunctional(PacketPtr pkt)
     pkt->popLabel();
 }
 
-bool
-DRAMSim2::recvTimingReq(PacketPtr pkt)
+bool DRAMSim2::recvTimingReq(PacketPtr pkt)
 {
     // if a cache is responding, sink the packet without further action
-    if (pkt->cacheResponding()) {
+    if (pkt->cacheResponding())
+    {
         pendingDelete.reset(pkt);
         return true;
     }
@@ -194,8 +196,10 @@ DRAMSim2::recvTimingReq(PacketPtr pkt)
     bool can_accept = nbrOutstanding() < wrapper.queueSize();
 
     // keep track of the transaction
-    if (pkt->isRead()) {
-        if (can_accept) {
+    if (pkt->isRead())
+    {
+        if (can_accept)
+        {
             outstandingReads[pkt->getAddr()].push(pkt);
 
             // we count a transaction as outstanding until it has left the
@@ -203,8 +207,11 @@ DRAMSim2::recvTimingReq(PacketPtr pkt)
             // back, note that this will differ for reads and writes
             ++nbrOutstandingReads;
         }
-    } else if (pkt->isWrite()) {
-        if (can_accept) {
+    }
+    else if (pkt->isWrite())
+    {
+        if (can_accept)
+        {
             outstandingWrites[pkt->getAddr()].push(pkt);
 
             ++nbrOutstandingWrites;
@@ -212,13 +219,16 @@ DRAMSim2::recvTimingReq(PacketPtr pkt)
             // perform the access for writes
             accessAndRespond(pkt);
         }
-    } else {
+    }
+    else
+    {
         // keep it simple and just respond if necessary
         accessAndRespond(pkt);
         return true;
     }
 
-    if (can_accept) {
+    if (can_accept)
+    {
         // we should never have a situation when we think there is space,
         // and there isn't
         assert(wrapper.canAccept());
@@ -228,38 +238,53 @@ DRAMSim2::recvTimingReq(PacketPtr pkt)
         // @todo what about the granularity here, implicit assumption that
         // a transaction matches the burst size of the memory (which we
         // cannot determine without parsing the ini file ourselves)
+
+        // @Ravi: get the cpuid corresponding pkt->req->masterid()
+        std::string masterName = system()->getMasterName(pkt->req->masterId());
+
+        // Parse the CPU ID if the masterName starts with "cpu"
+        int cpuId = -1; // Default to an invalid ID
+        if (masterName.find("cpu") != std::string::npos)
+        {                                                       // Check if "cpu" is present
+            size_t pos = masterName.find_last_of("0123456789"); // Find the last numeric part
+            if (pos != std::string::npos)
+            {
+                cpuId = std::stoi(masterName.substr(pos)); // Extract the numeric part
+            }
+        }
+
+        printf("Enqueueing address %lu, isWrite: %d, masterID: %d, cpuID: %d (%s)\n",
+               pkt->getAddr(), pkt->isWrite(), pkt->req->masterId(), cpuId, masterName.c_str());
+
         wrapper.enqueue(pkt->isWrite(), pkt->getAddr(), pkt->req->masterId());
 
         return true;
-    } else {
+    }
+    else
+    {
         retryReq = true;
         return false;
     }
 }
 
-void
-DRAMSim2::startDefence(uint64_t cpuid, uint64_t iDefenceDomain, uint64_t dDefenceDomain)
+void DRAMSim2::startDefence(uint64_t cpuid, uint64_t iDefenceDomain, uint64_t dDefenceDomain)
 {
     DPRINTF(DRAMSim2, "Signalling to start defence in DRAMSim2, iDomain: %d, dDomain: %d\n", iDefenceDomain, dDefenceDomain);
     wrapper.startDefence(cpuid, iDefenceDomain, dDefenceDomain);
 }
 
-void
-DRAMSim2::updateDefence(uint64_t oldDomain, uint64_t newDomain, bool isdata)
+void DRAMSim2::updateDefence(uint64_t oldDomain, uint64_t newDomain, bool isdata)
 {
     wrapper.updateDefence(oldDomain, newDomain, isdata);
 }
 
-void
-DRAMSim2::endDefence()
+void DRAMSim2::endDefence()
 {
     DPRINTF(DRAMSim2, "Signalling to end defence in DRAMSim2\n");
     wrapper.endDefence();
 }
 
-
-void
-DRAMSim2::recvRespRetry()
+void DRAMSim2::recvRespRetry()
 {
     DPRINTF(DRAMSim2, "Retrying\n");
 
@@ -268,8 +293,7 @@ DRAMSim2::recvRespRetry()
     sendResponse();
 }
 
-void
-DRAMSim2::accessAndRespond(PacketPtr pkt)
+void DRAMSim2::accessAndRespond(PacketPtr pkt)
 {
     DPRINTF(DRAMSim2, "Access for address %lld\n", pkt->getAddr());
 
@@ -280,7 +304,8 @@ DRAMSim2::accessAndRespond(PacketPtr pkt)
     access(pkt);
 
     // turn packet around to go back to requester if response expected
-    if (needsResponse) {
+    if (needsResponse)
+    {
         // access already turned the packet into a response
         assert(pkt->isResponse());
         // Here we pay for xbar additional delay and to process the payload
@@ -299,7 +324,9 @@ DRAMSim2::accessAndRespond(PacketPtr pkt)
         // to send a response, schedule an event
         if (!retryResp && !sendResponseEvent.scheduled())
             schedule(sendResponseEvent, time);
-    } else {
+    }
+    else
+    {
         // queue the packet for deletion
         pendingDelete.reset(pkt);
     }
@@ -360,9 +387,12 @@ void DRAMSim2::writeComplete(unsigned id, uint64_t addr, uint64_t cycle)
 Port &
 DRAMSim2::getPort(const std::string &if_name, PortID idx)
 {
-    if (if_name != "port") {
+    if (if_name != "port")
+    {
         return AbstractMemory::getPort(if_name, idx);
-    } else {
+    }
+    else
+    {
         return port;
     }
 }
@@ -375,10 +405,11 @@ DRAMSim2::drain()
     return nbrOutstanding() != 0 ? DrainState::Draining : DrainState::Drained;
 }
 
-DRAMSim2::MemoryPort::MemoryPort(const std::string& _name,
-                                 DRAMSim2& _memory)
+DRAMSim2::MemoryPort::MemoryPort(const std::string &_name,
+                                 DRAMSim2 &_memory)
     : SlavePort(_name, &_memory), memory(_memory)
-{ }
+{
+}
 
 AddrRangeList
 DRAMSim2::MemoryPort::getAddrRanges() const
@@ -388,32 +419,28 @@ DRAMSim2::MemoryPort::getAddrRanges() const
     return ranges;
 }
 
-Tick
-DRAMSim2::MemoryPort::recvAtomic(PacketPtr pkt)
+Tick DRAMSim2::MemoryPort::recvAtomic(PacketPtr pkt)
 {
     return memory.recvAtomic(pkt);
 }
 
-void
-DRAMSim2::MemoryPort::recvFunctional(PacketPtr pkt)
+void DRAMSim2::MemoryPort::recvFunctional(PacketPtr pkt)
 {
     memory.recvFunctional(pkt);
 }
 
-bool
-DRAMSim2::MemoryPort::recvTimingReq(PacketPtr pkt)
+bool DRAMSim2::MemoryPort::recvTimingReq(PacketPtr pkt)
 {
     // pass it to the memory controller
     return memory.recvTimingReq(pkt);
 }
 
-void
-DRAMSim2::MemoryPort::recvRespRetry()
+void DRAMSim2::MemoryPort::recvRespRetry()
 {
     memory.recvRespRetry();
 }
 
-DRAMSim2*
+DRAMSim2 *
 DRAMSim2Params::create()
 {
     return new DRAMSim2(this);

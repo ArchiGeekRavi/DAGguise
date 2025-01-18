@@ -68,5 +68,8 @@ batch execution.
 - [Merged_Checkpoint 50 Mn ASC SPEC and DOCDIST](https://iitbacin-my.sharepoint.com/:f:/g/personal/ravichoubey_iitb_ac_in/EmhTnVQP1PFNnPBKJlH6ttQBG2pp49uqk-4KzASkXBEb8g?e=nND4HZ)
 
 
+- Created DAG Structure for any input files (docdist, dna and matrix multiplication [mm]) and for both single_bank (restrict to schedule at bank 0) and multi_bank - [DAG_Structures Directories](https://drive.google.com/drive/folders/1M_vO1UAFIrHY7R4ypSK97Jro_XcvbNzn?usp=sharing); [Merged_Checkpoint and results experiments is done for DNA and MM](https://iitbacin-my.sharepoint.com/:f:/g/personal/ravichoubey_iitb_ac_in/Eo3bfWBR_3VJhujwnbOlCCgB-E8X1_Mmr8LstZzcZ-tpqw?e=t85bYc)
+
+
 
  

@@ -178,6 +178,9 @@ DRAMSim2Wrapper::canAccept() const
 void
 DRAMSim2Wrapper::startDefence(uint64_t cpuid, uint64_t iDefenceDomain, uint64_t dDefenceDomain)
 {
+    //@Ravi:
+    printf("DRAMSim2Wrapper::startDefence: cpuid = %lu, iDefenceDomain = %lu, dDefenceDomain = %lu\n", cpuid, iDefenceDomain, dDefenceDomain);
+    
     dramsim->startDefence(cpuid, iDefenceDomain, dDefenceDomain);
 }
 
@@ -198,6 +201,7 @@ DRAMSim2Wrapper::endDefence()
 void
 DRAMSim2Wrapper::enqueue(bool is_write, uint64_t addr, uint64_t masterID)
 {
+
     /*uint64_t securityDomain;
     auto it = find(master_domain_mapping.begin(), master_domain_mapping.end(), masterID);
     if (it != master_domain_mapping.end()) {
@@ -208,6 +212,10 @@ DRAMSim2Wrapper::enqueue(bool is_write, uint64_t addr, uint64_t masterID)
     }*/
     
     //bool success M5_VAR_USED = dramsim->addTransaction(is_write, addr, securityDomain);
+
+    //@Ravi:
+    printf("DRAMSim2Wrapper::enqueue: is_write = %d, addr = %lu, masterID = %lu\n", is_write, addr, masterID);
+    
     bool success M5_VAR_USED = dramsim->addTransaction(is_write, addr, masterID);
 
     assert(success);
