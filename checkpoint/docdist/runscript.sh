@@ -3,8 +3,8 @@
 export SIM_DESC=0
 
 $GEM5_ROOT/build/X86/gem5.opt \
-        --outdir=m5_merge \
-	$GEM5_ROOT/configs/example/se.py \
+        --outdir=mmm/m5_merge \
+	$GEM5_ROOT/configs/example/se_rq_spec_config_multicore.py \
 	--cpu-type=AtomicSimpleCPU \
 	--num-cpus=1 \
 	--mem-type=DRAMSim2 \
@@ -18,4 +18,4 @@ $GEM5_ROOT/build/X86/gem5.opt \
         --dramdeviceconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/ini/DDR3_micron_32M_8B_x8_sg125.ini \
         --dramsystemconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/system_reg.ini \
 	-c "$GEM5_ROOT/sample_programs/docdist/docDist_checkpoint" \
-	--checkpoint-dir=$GEM5_ROOT/checkpoint/docdist/ \
+	--checkpoint-dir=$GEM5_ROOT/checkpoint/docdist/mmm \

@@ -1,25 +1,63 @@
 #!/bin/bash
 
+#Need to export GEM5_ROOT
+if [ -z ${GEM5_ROOT+x} ];
+then
+    echo "GEM5_ROOT is unset";
+    exit
+else
+    echo "GEM5_ROOT is set to '$GEM5_ROOT'";
+fi
+#Need to export SPEC17_ROOT
+if [ -z ${SPEC_ROOT+x} ];
+then
+    echo "SPEC17_ROOT is unset";
+    exit
+else
+    echo "SPEC17_ROOT is set to '$SPEC_ROOT'";
+fi
+
+OUTPUT_DIR=$GEM5_ROOT/eval_scripts/simu_simple/results/
+echo "output directory: " $OUTPUT_DIR
+if [ -d "$OUTPUT_DIR" ]
+then
+    rm -r $OUTPUT_DIR
+fi
+mkdir -p $OUTPUT_DIR
+
+# File log used for stdout
+SCRIPT_OUT=$OUTPUT_DIR/runscript.log
+
+cd $SPEC_ROOT/benchspec/CPU/xz_r/run/run_base_refrate_gem5_se-m64.0000/
+
 $GEM5_ROOT/build/X86/gem5.opt \
-        --outdir=/home/user/DAGguise/eval_scripts/simu_simple/results/docDist_2cpu_DAGguise_prefetcher/stride_prefetcher/xz_r \
+    --outdir=/home/user/dagguise/eval_scripts/simu_simple/results/xz_r \
 	$GEM5_ROOT/configs/example/se.py \
 	--cpu-type=DerivO3CPU \
 	--num-cpus=2 \
 	--mem-type=DRAMSim2 \
 	--caches --l1d_size=32kB --l1i_size=32kB \
-        --l1d_assoc=8 --l1i_assoc=8 \
-	--l1d-hwp-type=StridePrefetcher \
+    --l1d_assoc=8 --l1i_assoc=8 \
 	--l2cache --l3cache \
 	--l2_size=256kB --l2_assoc=16 \
 	--l3_size=2MB --l3_assoc=16 \
-        --cpu-clock=2.4GHz --sys-clock=2.4GHz \
-        --checkpoint-restore=1 --at-instruction --maxinsts=50000000 --warmup-insts=1000000 --standard-switch=1000000 \
+    --cpu-clock=2.4GHz --sys-clock=2.4GHz \
+    --checkpoint-restore=1 --at-instruction --maxinsts=8350 \
 	--mem-size=4GB --enabledramlog \
-        --dramdeviceconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/ini/DDR3_micron_32M_8B_x8_sg125.ini \
-        --dramsystemconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/configs/system_dag_multi_closedrow.ini \
-        --dagprotectionfile=";$GEM5_ROOT/dag_generator/defense.json" \
+    --dramdeviceconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/ini/DDR3_micron_32M_8B_x8_sg125.ini \
+    --dramsystemconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/configs/system_dag.ini \
+    --dagprotectionfile=";$GEM5_ROOT/dag_generator/defense.json" \
 	-c "$GEM5_ROOT/sample_programs/docdist/docDist" \
-	--checkpoint-dir=/home/user/DAGguise/checkpoint_merge/merged_checkpoint_xz_r/\
+	--checkpoint-dir=/home/user/dagguise/checkpoint_merge/merged_checkpoint_xz_r \
 	--benchmark=xz_r \
 	--simpt-ckpt=0 \
-	--dramsim2outputfile=/home/user/DAGguise/eval_scripts/simu_simple/results/docDist_2cpu_DAGguise_prefetcher/stride_prefetcher/xz_r/dram \
+	--dramsim2outputfile=/home/user/dagguise/eval_scripts/simu_simple/results/xz_r/dram \
+	>> $SCRIPT_OUT 2>&1
+
+	cd -
+
+
+	#  	-c "$GEM5_ROOT/sample_programs/docdist/docDist" \
+
+	#	--checkpoint-dir=/home/user/dagguise/checkpoint_merge/merged_checkpoint_xz_r \
+
