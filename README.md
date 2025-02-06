@@ -71,5 +71,9 @@ batch execution.
 - Created DAG Structure for any input files (docdist, dna and matrix multiplication [mm]) and for both single_bank (restrict to schedule at bank 0) and multi_bank - [DAG_Structures Directories](https://drive.google.com/drive/folders/1M_vO1UAFIrHY7R4ypSK97Jro_XcvbNzn?usp=sharing); [Merged_Checkpoint and results experiments is done for DNA and MM](https://iitbacin-my.sharepoint.com/:f:/g/personal/ravichoubey_iitb_ac_in/Eo3bfWBR_3VJhujwnbOlCCgB-E8X1_Mmr8LstZzcZ-tpqw?e=t85bYc)
 
 
+ - Experiment is done for 8cores simulation: [4cores SPEC Checkpoint; Merged_Checkpoint 50 Mn ASC 4cores SPEC, 2cores DOCDIST AND 2cores DNA; results](https://iitbacin-my.sharepoint.com/:f:/g/personal/ravichoubey_iitb_ac_in/Ep8gbU-WaTFNp82kRgcrtmEB-apZu_YBkNDn_Py__rJ5xg?e=RkPaoo)
 
- 
+
+- [ Average Normalized IPC running DocDist with one SPEC application on a two-core system](plot_scripts/2cpu_recent.pdf)
+
+- [ Average Normalized IPC of two DocDist, two DNA, and four SPEC processes on an eight-core system](plot_scripts/8cpu_recent.pdf)
