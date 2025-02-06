@@ -42,9 +42,6 @@ RUN pip install --upgrade pip && pip install scons && \
     cp -r /usr/local/lib/python2.7/dist-packages/scons* \
           /usr/local/lib/python2.7/site-packages/
 
-# Install additional Python packages
-RUN pip3 install numpy pandas setuptools matplotlib scipy
-
 FROM gem5-env as dagguise-env
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
@@ -78,3 +75,4 @@ RUN . /home/user/.virtualenv/asplos/bin/activate && pip3 install -r eval_scripts
     
 RUN scons build/X86/gem5.opt -j$(nproc) | tee build.log
 CMD ["/bin/bash"]
+
