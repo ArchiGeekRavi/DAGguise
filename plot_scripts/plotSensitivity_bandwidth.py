@@ -7,6 +7,7 @@ import os
 import csv
 import re
 from matplotlib.patches import Rectangle
+from matplotlib.ticker import MultipleLocator
 
 gem5root = os.environ.get('GEM5_ROOT')
 specroot = os.environ.get('SPEC_ROOT') 
@@ -111,7 +112,6 @@ for kind in mkr_dict:
 axs[2].set_ylabel('Normalized IPC')
 axs[2].set_xlabel('Avg. Allocated Bandwidth (GB/s)\n(c)')
 
-
 #axs[0].legend(loc='upper center', bbox_to_anchor=(0.5, 1.1), title="Number of Parallel Accesses",
 #          ncol=4, fancybox=True, shadow=True)
 plt.tight_layout()
@@ -120,6 +120,11 @@ axs[0].set_position([box.x0+0.15, box.y0-0.06, box.width*0.8, box.height])
 axs[0].axhline(y=0.4, color='lightgrey', linestyle='dotted')
 axs[0].axhline(y=0.6, color='lightgrey', linestyle='dotted')
 axs[0].axhline(y=0.8, color='lightgrey', linestyle='dotted')
+
+#@Ravi: add for change the x-axis scale
+axs[0].xaxis.set_major_locator(MultipleLocator(100))
+axs[1].xaxis.set_major_locator(MultipleLocator(100))
+
 box = axs[1].get_position()
 axs[1].set_position([box.x0+0.1, box.y0-0.06, box.width*0.8, box.height])
 axs[1].axhline(y=2, color='lightgrey', linestyle='dotted')

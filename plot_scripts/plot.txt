@@ -1,0 +1,176 @@
+source 7_plot_fig9.sh                                               ──(Sat,Feb01)─┘
+         test chkptnum  cpu0_ipc  cpu1_ipc        ticks                 trial
+0        namd       fs  0.611818  0.811453  28005511500              DAGguise
+1          xz       fs  0.773054  0.809323  27821984796              DAGguise
+2         nab       fs  1.100371  0.807954  21088295901              DAGguise
+3        roms       fs  0.071998  0.798117  28560000987              DAGguise
+4        x264       fs  1.132641  0.802720  20845490145              DAGguise
+5         wrf       fs  0.270919  0.796651  28610295774              DAGguise
+6   deepsjeng       fs  0.017344  0.801789  28445325987              DAGguise
+7   fotonik3d       fs  0.647935  0.808939  28050588783              DAGguise
+8   cactuBSSN       fs  0.635674  0.800119  28495796331              DAGguise
+9       leela       fs  1.576556  0.805783  15429961185              DAGguise
+10    blender       fs  0.875526  0.807977  25919501526              DAGguise
+11        lbm       fs  0.022935  0.800582  28478559219              DAGguise
+12     povray       fs  1.260688  0.805952  18974979933              DAGguise
+13  exchange2       fs  1.029531  0.806471  22126732653              DAGguise
+14       namd       fs  0.460094  0.842478  27073717911                FS-BTA
+15         xz       fs  0.758320  0.838732  26967784482                FS-BTA
+16        nab       fs  1.086466  0.840319  21392093328                FS-BTA
+17       roms       fs  0.054450  0.840962  27188123946                FS-BTA
+18       x264       fs  1.106156  0.837971  21244624197                FS-BTA
+19        wrf       fs  0.226954  0.839229  27235613574                FS-BTA
+20  deepsjeng       fs  0.013568  0.839755  27221660337                FS-BTA
+21  fotonik3d       fs  0.595805  0.841202  27083707146                FS-BTA
+22  cactuBSSN       fs  0.473803  0.837711  27285707784                FS-BTA
+23      leela       fs  1.568600  0.840120  15522791223                FS-BTA
+24    blender       fs  0.870985  0.842086  26094680724                FS-BTA
+25        lbm       fs  0.018118  0.839890  27219326388                FS-BTA
+26     povray       fs  1.253058  0.835562  19036137570                FS-BTA
+27  exchange2       fs  1.027658  0.839077  22186133886                FS-BTA
+28       namd       fs  0.703330  0.894405  25619296554  docDist_2cpu_regular
+29         xz       fs  0.777839  0.894943  25336166064  docDist_2cpu_regular
+30        nab       fs  1.103588  0.891225  21007671453  docDist_2cpu_regular
+31       roms       fs  0.076319  0.889097  25769972415  docDist_2cpu_regular
+32       x264       fs  1.150698  0.893911  20439095706  docDist_2cpu_regular
+33        wrf       fs  0.340665  0.888522  25785099924  docDist_2cpu_regular
+34  deepsjeng       fs  0.023778  0.885106  25876020936  docDist_2cpu_regular
+35  fotonik3d       fs  0.694506  0.895198  25561981572  docDist_2cpu_regular
+36  cactuBSSN       fs  0.681846  0.891531  25706382417  docDist_2cpu_regular
+37      leela       fs  1.586690  0.892518  15337683255  docDist_2cpu_regular
+38    blender       fs  0.876825  0.892584  25448629296  docDist_2cpu_regular
+39        lbm       fs  0.031408  0.886373  25841936190  docDist_2cpu_regular
+40     povray       fs  1.245096  0.890966  19065342582  docDist_2cpu_regular
+41  exchange2       fs  1.031131  0.890631  22082501046  docDist_2cpu_regular
+=== IPC Stats ===
+
+         test                 trial  cpu_1_ipc_wa   DocDist  cpu_0_ipc_wa  \
+0     blender              DAGguise       80.7977  0.452606       87.5526   
+1     blender                FS-BTA       84.2086  0.471712       87.0985   
+2     blender  docDist_2cpu_regular       89.2584  0.500000       87.6825   
+3   cactuBSSN              DAGguise       80.0119  0.448733       63.5674   
+4   cactuBSSN                FS-BTA       83.7711  0.469816       47.3803   
+5   cactuBSSN  docDist_2cpu_regular       89.1531  0.500000       68.1846   
+6   deepsjeng              DAGguise       80.1789  0.452934        1.7344   
+7   deepsjeng                FS-BTA       83.9755  0.474381        1.3568   
+8   deepsjeng  docDist_2cpu_regular       88.5106  0.500000        2.3778   
+9   exchange2              DAGguise       80.6471  0.452753      102.9531   
+10  exchange2                FS-BTA       83.9077  0.471058      102.7658   
+11  exchange2  docDist_2cpu_regular       89.0631  0.500000      103.1131   
+12  fotonik3d              DAGguise       80.8939  0.451821       64.7935   
+13  fotonik3d                FS-BTA       84.1202  0.469841       59.5805   
+14  fotonik3d  docDist_2cpu_regular       89.5198  0.500000       69.4506   
+15        lbm              DAGguise       80.0582  0.451606        2.2935   
+16        lbm                FS-BTA       83.9890  0.473779        1.8118   
+17        lbm  docDist_2cpu_regular       88.6373  0.500000        3.1408   
+18      leela              DAGguise       80.5783  0.451410      157.6556   
+19      leela                FS-BTA       84.0120  0.470646      156.8600   
+20      leela  docDist_2cpu_regular       89.2518  0.500000      158.6690   
+21        nab              DAGguise       80.7954  0.453283      110.0371   
+22        nab                FS-BTA       84.0319  0.471440      108.6466   
+23        nab  docDist_2cpu_regular       89.1225  0.500000      110.3588   
+24       namd              DAGguise       81.1453  0.453627       61.1818   
+25       namd                FS-BTA       84.2478  0.470971       46.0094   
+26       namd  docDist_2cpu_regular       89.4405  0.500000       70.3330   
+27     povray              DAGguise       80.5952  0.452291      126.0688   
+28     povray                FS-BTA       83.5562  0.468908      125.3058   
+29     povray  docDist_2cpu_regular       89.0966  0.500000      124.5096   
+30       roms              DAGguise       79.8117  0.448836        7.1998   
+31       roms                FS-BTA       84.0962  0.472930        5.4450   
+32       roms  docDist_2cpu_regular       88.9097  0.500000        7.6319   
+33        wrf              DAGguise       79.6651  0.448301       27.0919   
+34        wrf                FS-BTA       83.9229  0.472261       22.6954   
+35        wrf  docDist_2cpu_regular       88.8522  0.500000       34.0665   
+36       x264              DAGguise       80.2720  0.448993      113.2641   
+37       x264                FS-BTA       83.7971  0.468711      110.6156   
+38       x264  docDist_2cpu_regular       89.3911  0.500000      115.0698   
+39         xz              DAGguise       80.9323  0.452165       77.3054   
+40         xz                FS-BTA       83.8732  0.468595       75.8320   
+41         xz  docDist_2cpu_regular       89.4943  0.500000       77.7839   
+
+        SPEC  
+0   0.499259  
+1   0.496670  
+2   0.500000  
+3   0.466142  
+4   0.347441  
+5   0.500000  
+6   0.364707  
+7   0.285306  
+8   0.500000  
+9   0.499224  
+10  0.498316  
+11  0.500000  
+12  0.466472  
+13  0.428942  
+14  0.500000  
+15  0.365114  
+16  0.288430  
+17  0.500000  
+18  0.496807  
+19  0.494299  
+20  0.500000  
+21  0.498542  
+22  0.492243  
+23  0.500000  
+24  0.434944  
+25  0.327083  
+26  0.500000  
+27  0.506261  
+28  0.503197  
+29  0.500000  
+30  0.471691  
+31  0.356726  
+32  0.500000  
+33  0.397633  
+34  0.333104  
+35  0.500000  
+36  0.492154  
+37  0.480646  
+38  0.500000  
+39  0.496924  
+40  0.487453  
+41  0.500000  
+FS-BTA
+            DocDist      SPEC
+test                         
+blender    0.471712  0.496670
+cactuBSSN  0.469816  0.347441
+deepsjeng  0.474381  0.285306
+exchange2  0.471058  0.498316
+fotonik3d  0.469841  0.428942
+lbm        0.473779  0.288430
+leela      0.470646  0.494299
+nab        0.471440  0.492243
+namd       0.470971  0.327083
+povray     0.468908  0.503197
+roms       0.472930  0.356726
+wrf        0.472261  0.333104
+x264       0.468711  0.480646
+xz         0.468595  0.487453
+geomean    0.471072  0.406673
+DAGguise
+            DocDist      SPEC
+test                         
+blender    0.452606  0.499259
+cactuBSSN  0.448733  0.466142
+deepsjeng  0.452934  0.364707
+exchange2  0.452753  0.499224
+fotonik3d  0.451821  0.466472
+lbm        0.451606  0.365114
+leela      0.451410  0.496807
+nab        0.453283  0.498542
+namd       0.453627  0.434944
+povray     0.452291  0.506261
+roms       0.448836  0.471691
+wrf        0.448301  0.397633
+x264       0.448993  0.492154
+xz         0.452165  0.496924
+geomean    0.451379  0.458335
+plot_2cpu.py:178: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+  box = plt.axes().get_position()
+plot_2cpu.py:179: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+  plt.axes().set_position([box.x0, box.y0+0.125, box.width*1.1, box.height*0.85])
+plot_2cpu.py:182: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+  plt.show()
+/home/user/dagguise/eval_scripts
