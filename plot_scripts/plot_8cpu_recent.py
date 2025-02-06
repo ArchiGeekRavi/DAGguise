@@ -16,7 +16,9 @@ assert(specroot is not None)
 # Modified DataFrame to include 8 CPU cores
 df = pd.DataFrame(columns=["test", "chkptnum", "trial"] + [f"cpu{i}_ipc" for i in range(8)] + ["ticks"])
 
-exprs = ['xz_r']  # Using single test as in your example
+exprs = ['blender_r', 'cactuBSSN_r', 'deepsjeng_r', 'exchange2_r', 'fotonik3d_r', 'lbm_r', 'leela_r', 'nab_r', 'namd_r', 'povray_r', 'roms_r', 'wrf_r', 'x264_r', 'xz_r']
+
+
 
 if len(sys.argv) <= 2:
     print("Usage: plot_8cpu.py results_dir testname1 testname2 testname3")
@@ -71,27 +73,53 @@ for index, row in failed.iterrows():
     print(f"Dropping {row['test']}, {row['chkptnum']}")
     df = df.drop(df[(df['test'] == row['test']) & (df['chkptnum'] == row['chkptnum'])].index)
 
+# g = df.groupby(['test','trial'], as_index=False)
+
+# df['cpu_0_ipc_wa'] = df.cpu0_ipc * 100
+# df['cpu_1_ipc_wa'] = df.cpu1_ipc * 100
+# df['cpu_2_ipc_wa'] = df.cpu2_ipc * 100
+# df['cpu_3_ipc_wa'] = df.cpu3_ipc * 100
+# df['cpu_4_ipc_wa'] = df.cpu4_ipc * 100
+# df['cpu_5_ipc_wa'] = df.cpu5_ipc * 100
+# df['cpu_6_ipc_wa'] = df.cpu6_ipc * 100
+# df['cpu_7_ipc_wa'] = df.cpu7_ipc * 100
+
+# ipc_0 = g.cpu_0_ipc_wa.sum()
+# ipc_1 = g.cpu_1_ipc_wa.sum()
+# ipc_2 = g.cpu_2_ipc_wa.sum()
+# ipc_3 = g.cpu_3_ipc_wa.sum()
+# ipc_4 = g.cpu_4_ipc_wa.sum()
+# ipc_5 = g.cpu_5_ipc_wa.sum()
+# ipc_6 = g.cpu_6_ipc_wa.sum()
+# ipc_7 = g.cpu_7_ipc_wa.sum()
 
 # Calculate weighted IPC for all 8 cores
 for i in range(8):
     df[f'cpu_{i}_ipc_wa'] = df[f'cpu{i}_ipc'] * 100
 
+# def calculate_normalized_ipc(group, baseline_group):
+#     # Calculate normalized IPC for each core type
+#     spec_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4))
+#     print("spec_cores", spec_cores)
+#     docdist_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4, 6))
+#     print(docdist_cores)
+#     dna_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(6, 8))
+#     print(dna_cores)
+    
+#     baseline_total = sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(8))
+    
+#     return pd.Series({
+#         'SPEC': spec_cores / (baseline_total),
+#         'DocDist': docdist_cores / (baseline_total),
+#         'DNA': dna_cores / (baseline_total)
+#     })
+
 def calculate_normalized_ipc(group, baseline_group):
-    # Calculate normalized IPC for each core type
-    spec_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4))
-    print(spec_cores)
-    docdist_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4, 6))
-    print(docdist_cores)
-    dna_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(6, 8))
-    print(dna_cores)
+    spec_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4)) / sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(4)) / 3
+    docdist_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4, 6)) / sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(4, 6)) / 3
+    dna_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(6, 8)) / sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(6, 8)) / 3
     
-    baseline_total = sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(8))
-    
-    return pd.Series({
-        'SPEC': spec_cores / (baseline_total),
-        'DocDist': docdist_cores / (baseline_total),
-        'DNA': dna_cores / (baseline_total)
-    })
+    return pd.Series({'SPEC': spec_cores, 'DocDist': docdist_cores, 'DNA': dna_cores})
 
 # Initialize the result DataFrame
 result_df = pd.DataFrame()

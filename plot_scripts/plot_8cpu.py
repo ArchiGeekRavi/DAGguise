@@ -18,8 +18,6 @@ df = pd.DataFrame(columns=["test", "chkptnum", "trial"] + [f"cpu{i}_ipc" for i i
 
 exprs = ['blender_r', 'cactuBSSN_r', 'deepsjeng_r', 'exchange2_r', 'fotonik3d_r', 'lbm_r', 'leela_r', 'nab_r', 'namd_r', 'povray_r', 'roms_r', 'wrf_r', 'x264_r', 'xz_r']
 
-
-
 if len(sys.argv) <= 2:
     print("Usage: plot_8cpu.py results_dir testname1 testname2 testname3")
     print("Example: plot_8cpu.py $GEM5_ROOT/eval_scripts/simu_condor/results/ docDist_8cpu_DAGguise docDist_8cpu_FSBTA docDist_8cpu_regular")
@@ -73,46 +71,9 @@ for index, row in failed.iterrows():
     print(f"Dropping {row['test']}, {row['chkptnum']}")
     df = df.drop(df[(df['test'] == row['test']) & (df['chkptnum'] == row['chkptnum'])].index)
 
-# g = df.groupby(['test','trial'], as_index=False)
-
-# df['cpu_0_ipc_wa'] = df.cpu0_ipc * 100
-# df['cpu_1_ipc_wa'] = df.cpu1_ipc * 100
-# df['cpu_2_ipc_wa'] = df.cpu2_ipc * 100
-# df['cpu_3_ipc_wa'] = df.cpu3_ipc * 100
-# df['cpu_4_ipc_wa'] = df.cpu4_ipc * 100
-# df['cpu_5_ipc_wa'] = df.cpu5_ipc * 100
-# df['cpu_6_ipc_wa'] = df.cpu6_ipc * 100
-# df['cpu_7_ipc_wa'] = df.cpu7_ipc * 100
-
-# ipc_0 = g.cpu_0_ipc_wa.sum()
-# ipc_1 = g.cpu_1_ipc_wa.sum()
-# ipc_2 = g.cpu_2_ipc_wa.sum()
-# ipc_3 = g.cpu_3_ipc_wa.sum()
-# ipc_4 = g.cpu_4_ipc_wa.sum()
-# ipc_5 = g.cpu_5_ipc_wa.sum()
-# ipc_6 = g.cpu_6_ipc_wa.sum()
-# ipc_7 = g.cpu_7_ipc_wa.sum()
-
 # Calculate weighted IPC for all 8 cores
 for i in range(8):
     df[f'cpu_{i}_ipc_wa'] = df[f'cpu{i}_ipc'] * 100
-
-# def calculate_normalized_ipc(group, baseline_group):
-#     # Calculate normalized IPC for each core type
-#     spec_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4))
-#     print("spec_cores", spec_cores)
-#     docdist_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4, 6))
-#     print(docdist_cores)
-#     dna_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(6, 8))
-#     print(dna_cores)
-    
-#     baseline_total = sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(8))
-    
-#     return pd.Series({
-#         'SPEC': spec_cores / (baseline_total),
-#         'DocDist': docdist_cores / (baseline_total),
-#         'DNA': dna_cores / (baseline_total)
-#     })
 
 def calculate_normalized_ipc(group, baseline_group):
     spec_cores = sum(group[f'cpu_{i}_ipc_wa'] for i in range(4)) / sum(baseline_group[f'cpu_{i}_ipc_wa'] for i in range(4)) / 3
@@ -164,6 +125,20 @@ for trial in result_df['trial'].unique():
     
     result_df = pd.concat([result_df, geo_row])
 
+# Create a custom sorting key based on the exprs list
+def get_sort_key(x):
+    if x == 'geomean':
+        return len(exprs) + 1  # Put geomean at the end
+    try:
+        return exprs.index(x + '_r')  # Add '_r' back for comparison
+    except ValueError:
+        return len(exprs)  # Put any unmatched items at the end
+
+# Sort the result_df based on the custom order
+result_df['sort_key'] = result_df['test'].apply(get_sort_key)
+result_df = result_df.sort_values('sort_key')
+result_df = result_df.drop('sort_key', axis=1)
+
 def plot_clustered_stacked(dfall, labels=None, title="multiple stacked bar plot", H="/", **kwargs):
     n_df = len(dfall)
     n_col = len(dfall[0].columns)
@@ -211,7 +186,7 @@ def plot_clustered_stacked(dfall, labels=None, title="multiple stacked bar plot"
     axe.add_artist(l1)
     return axe
 
-# Prepare data for plotting
+# Prepare data for plotting with the sorted order
 df_list = []
 trial_list = []
 for trial in sorted(result_df['trial'].unique(), reverse=True):
@@ -226,5 +201,5 @@ plot_clustered_stacked(df_list, trial_list, title="Average Normalized Speedup")
 box = plt.axes().get_position()
 plt.axes().set_position([box.x0, box.y0+0.125, box.width*1.1, box.height*0.85])
 
-plt.savefig("8cpu_recent.pdf")
+plt.savefig("8cpu_recent_new.pdf")
 plt.show()
