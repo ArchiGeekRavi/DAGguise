@@ -1,0 +1,1126 @@
+{
+    "0": {
+        "loop": 100,
+        "node": [
+            {
+                "nodeID": 0,
+                "bankID": 0,
+                "combinedWB": 1,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 1,
+                "bankID": 1,
+                "combinedWB": 1,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 2,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 3,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 4,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 5,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 6,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 7,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 8,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 9,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 10,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 11,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 12,
+                "bankID": 4,
+                "combinedWB": 1,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 13,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 14,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 15,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 16,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 17,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 18,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 19,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 20,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 21,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 22,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 23,
+                "bankID": 7,
+                "combinedWB": 1,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 24,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 25,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 26,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 27,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 28,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 29,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 30,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 31,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 32,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 33,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 34,
+                "bankID": 2,
+                "combinedWB": 1,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 35,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 36,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 37,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 38,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 39,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 40,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 41,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 42,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 43,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 44,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 45,
+                "bankID": 5,
+                "combinedWB": 1,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 46,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 47,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 48,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 49,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 50,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 51,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 52,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 53,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 54,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 55,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 56,
+                "bankID": 0,
+                "combinedWB": 1,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 57,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 58,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 59,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 60,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 61,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 62,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 63,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 64,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 65,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 66,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 67,
+                "bankID": 3,
+                "combinedWB": 1,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 68,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 69,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 70,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 71,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 72,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 73,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 74,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 75,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 76,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 77,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 78,
+                "bankID": 6,
+                "combinedWB": 1,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 79,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 80,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 81,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 82,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 83,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 84,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 85,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 86,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 87,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 88,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 89,
+                "bankID": 1,
+                "combinedWB": 1,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 90,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 91,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 92,
+                "bankID": 4,
+                "combinedWB": 0,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 93,
+                "bankID": 5,
+                "combinedWB": 0,
+                "combinedWBBankID": 5
+            },
+            {
+                "nodeID": 94,
+                "bankID": 6,
+                "combinedWB": 0,
+                "combinedWBBankID": 6
+            },
+            {
+                "nodeID": 95,
+                "bankID": 7,
+                "combinedWB": 0,
+                "combinedWBBankID": 7
+            },
+            {
+                "nodeID": 96,
+                "bankID": 0,
+                "combinedWB": 0,
+                "combinedWBBankID": 0
+            },
+            {
+                "nodeID": 97,
+                "bankID": 1,
+                "combinedWB": 0,
+                "combinedWBBankID": 1
+            },
+            {
+                "nodeID": 98,
+                "bankID": 2,
+                "combinedWB": 0,
+                "combinedWBBankID": 2
+            },
+            {
+                "nodeID": 99,
+                "bankID": 3,
+                "combinedWB": 0,
+                "combinedWBBankID": 3
+            },
+            {
+                "nodeID": 100,
+                "bankID": 4,
+                "combinedWB": 1,
+                "combinedWBBankID": 4
+            },
+            {
+                "nodeID": 101,
+                "bankID": 0,
+                "combinedWB": 1,
+                "combinedWBBankID": 0
+            }
+        ],
+        "edge": [
+            {
+                "sourceID": 0,
+                "destID": 1,
+                "latency": 260
+            },
+            {
+                "sourceID": 1,
+                "destID": 2,
+                "latency": 260
+            },
+            {
+                "sourceID": 2,
+                "destID": 3,
+                "latency": 260
+            },
+            {
+                "sourceID": 3,
+                "destID": 4,
+                "latency": 260
+            },
+            {
+                "sourceID": 4,
+                "destID": 5,
+                "latency": 260
+            },
+            {
+                "sourceID": 5,
+                "destID": 6,
+                "latency": 260
+            },
+            {
+                "sourceID": 6,
+                "destID": 7,
+                "latency": 260
+            },
+            {
+                "sourceID": 7,
+                "destID": 8,
+                "latency": 260
+            },
+            {
+                "sourceID": 8,
+                "destID": 9,
+                "latency": 260
+            },
+            {
+                "sourceID": 9,
+                "destID": 10,
+                "latency": 260
+            },
+            {
+                "sourceID": 10,
+                "destID": 11,
+                "latency": 260
+            },
+            {
+                "sourceID": 11,
+                "destID": 12,
+                "latency": 260
+            },
+            {
+                "sourceID": 12,
+                "destID": 13,
+                "latency": 260
+            },
+            {
+                "sourceID": 13,
+                "destID": 14,
+                "latency": 260
+            },
+            {
+                "sourceID": 14,
+                "destID": 15,
+                "latency": 260
+            },
+            {
+                "sourceID": 15,
+                "destID": 16,
+                "latency": 260
+            },
+            {
+                "sourceID": 16,
+                "destID": 17,
+                "latency": 260
+            },
+            {
+                "sourceID": 17,
+                "destID": 18,
+                "latency": 260
+            },
+            {
+                "sourceID": 18,
+                "destID": 19,
+                "latency": 260
+            },
+            {
+                "sourceID": 19,
+                "destID": 20,
+                "latency": 260
+            },
+            {
+                "sourceID": 20,
+                "destID": 21,
+                "latency": 260
+            },
+            {
+                "sourceID": 21,
+                "destID": 22,
+                "latency": 260
+            },
+            {
+                "sourceID": 22,
+                "destID": 23,
+                "latency": 260
+            },
+            {
+                "sourceID": 23,
+                "destID": 24,
+                "latency": 260
+            },
+            {
+                "sourceID": 24,
+                "destID": 25,
+                "latency": 260
+            },
+            {
+                "sourceID": 25,
+                "destID": 26,
+                "latency": 260
+            },
+            {
+                "sourceID": 26,
+                "destID": 27,
+                "latency": 260
+            },
+            {
+                "sourceID": 27,
+                "destID": 28,
+                "latency": 260
+            },
+            {
+                "sourceID": 28,
+                "destID": 29,
+                "latency": 260
+            },
+            {
+                "sourceID": 29,
+                "destID": 30,
+                "latency": 260
+            },
+            {
+                "sourceID": 30,
+                "destID": 31,
+                "latency": 260
+            },
+            {
+                "sourceID": 31,
+                "destID": 32,
+                "latency": 260
+            },
+            {
+                "sourceID": 32,
+                "destID": 33,
+                "latency": 260
+            },
+            {
+                "sourceID": 33,
+                "destID": 34,
+                "latency": 260
+            },
+            {
+                "sourceID": 34,
+                "destID": 35,
+                "latency": 260
+            },
+            {
+                "sourceID": 35,
+                "destID": 36,
+                "latency": 260
+            },
+            {
+                "sourceID": 36,
+                "destID": 37,
+                "latency": 260
+            },
+            {
+                "sourceID": 37,
+                "destID": 38,
+                "latency": 260
+            },
+            {
+                "sourceID": 38,
+                "destID": 39,
+                "latency": 260
+            },
+            {
+                "sourceID": 39,
+                "destID": 40,
+                "latency": 260
+            },
+            {
+                "sourceID": 40,
+                "destID": 41,
+                "latency": 260
+            },
+            {
+                "sourceID": 41,
+                "destID": 42,
+                "latency": 260
+            },
+            {
+                "sourceID": 42,
+                "destID": 43,
+                "latency": 260
+            },
+            {
+                "sourceID": 43,
+                "destID": 44,
+                "latency": 260
+            },
+            {
+                "sourceID": 44,
+                "destID": 45,
+                "latency": 260
+            },
+            {
+                "sourceID": 45,
+                "destID": 46,
+                "latency": 260
+            },
+            {
+                "sourceID": 46,
+                "destID": 47,
+                "latency": 260
+            },
+            {
+                "sourceID": 47,
+                "destID": 48,
+                "latency": 260
+            },
+            {
+                "sourceID": 48,
+                "destID": 49,
+                "latency": 260
+            },
+            {
+                "sourceID": 49,
+                "destID": 50,
+                "latency": 260
+            },
+            {
+                "sourceID": 50,
+                "destID": 51,
+                "latency": 260
+            },
+            {
+                "sourceID": 51,
+                "destID": 52,
+                "latency": 260
+            },
+            {
+                "sourceID": 52,
+                "destID": 53,
+                "latency": 260
+            },
+            {
+                "sourceID": 53,
+                "destID": 54,
+                "latency": 260
+            },
+            {
+                "sourceID": 54,
+                "destID": 55,
+                "latency": 260
+            },
+            {
+                "sourceID": 55,
+                "destID": 56,
+                "latency": 260
+            },
+            {
+                "sourceID": 56,
+                "destID": 57,
+                "latency": 260
+            },
+            {
+                "sourceID": 57,
+                "destID": 58,
+                "latency": 260
+            },
+            {
+                "sourceID": 58,
+                "destID": 59,
+                "latency": 260
+            },
+            {
+                "sourceID": 59,
+                "destID": 60,
+                "latency": 260
+            },
+            {
+                "sourceID": 60,
+                "destID": 61,
+                "latency": 260
+            },
+            {
+                "sourceID": 61,
+                "destID": 62,
+                "latency": 260
+            },
+            {
+                "sourceID": 62,
+                "destID": 63,
+                "latency": 260
+            },
+            {
+                "sourceID": 63,
+                "destID": 64,
+                "latency": 260
+            },
+            {
+                "sourceID": 64,
+                "destID": 65,
+                "latency": 260
+            },
+            {
+                "sourceID": 65,
+                "destID": 66,
+                "latency": 260
+            },
+            {
+                "sourceID": 66,
+                "destID": 67,
+                "latency": 260
+            },
+            {
+                "sourceID": 67,
+                "destID": 68,
+                "latency": 260
+            },
+            {
+                "sourceID": 68,
+                "destID": 69,
+                "latency": 260
+            },
+            {
+                "sourceID": 69,
+                "destID": 70,
+                "latency": 260
+            },
+            {
+                "sourceID": 70,
+                "destID": 71,
+                "latency": 260
+            },
+            {
+                "sourceID": 71,
+                "destID": 72,
+                "latency": 260
+            },
+            {
+                "sourceID": 72,
+                "destID": 73,
+                "latency": 260
+            },
+            {
+                "sourceID": 73,
+                "destID": 74,
+                "latency": 260
+            },
+            {
+                "sourceID": 74,
+                "destID": 75,
+                "latency": 260
+            },
+            {
+                "sourceID": 75,
+                "destID": 76,
+                "latency": 260
+            },
+            {
+                "sourceID": 76,
+                "destID": 77,
+                "latency": 260
+            },
+            {
+                "sourceID": 77,
+                "destID": 78,
+                "latency": 260
+            },
+            {
+                "sourceID": 78,
+                "destID": 79,
+                "latency": 260
+            },
+            {
+                "sourceID": 79,
+                "destID": 80,
+                "latency": 260
+            },
+            {
+                "sourceID": 80,
+                "destID": 81,
+                "latency": 260
+            },
+            {
+                "sourceID": 81,
+                "destID": 82,
+                "latency": 260
+            },
+            {
+                "sourceID": 82,
+                "destID": 83,
+                "latency": 260
+            },
+            {
+                "sourceID": 83,
+                "destID": 84,
+                "latency": 260
+            },
+            {
+                "sourceID": 84,
+                "destID": 85,
+                "latency": 260
+            },
+            {
+                "sourceID": 85,
+                "destID": 86,
+                "latency": 260
+            },
+            {
+                "sourceID": 86,
+                "destID": 87,
+                "latency": 260
+            },
+            {
+                "sourceID": 87,
+                "destID": 88,
+                "latency": 260
+            },
+            {
+                "sourceID": 88,
+                "destID": 89,
+                "latency": 260
+            },
+            {
+                "sourceID": 89,
+                "destID": 90,
+                "latency": 260
+            },
+            {
+                "sourceID": 90,
+                "destID": 91,
+                "latency": 260
+            },
+            {
+                "sourceID": 91,
+                "destID": 92,
+                "latency": 260
+            },
+            {
+                "sourceID": 92,
+                "destID": 93,
+                "latency": 260
+            },
+            {
+                "sourceID": 93,
+                "destID": 94,
+                "latency": 260
+            },
+            {
+                "sourceID": 94,
+                "destID": 95,
+                "latency": 260
+            },
+            {
+                "sourceID": 95,
+                "destID": 96,
+                "latency": 260
+            },
+            {
+                "sourceID": 96,
+                "destID": 97,
+                "latency": 260
+            },
+            {
+                "sourceID": 97,
+                "destID": 98,
+                "latency": 260
+            },
+            {
+                "sourceID": 98,
+                "destID": 99,
+                "latency": 260
+            },
+            {
+                "sourceID": 99,
+                "destID": 100,
+                "latency": 260
+            },
+            {
+                "sourceID": 100,
+                "destID": 101,
+                "latency": 260
+            }
+        ]
+    }
+}
