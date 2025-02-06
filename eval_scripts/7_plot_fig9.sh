@@ -10,8 +10,10 @@ fi
 
 cd $GEM5_ROOT/plot_scripts/
 #python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_condor/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
-#python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
-python3 plot_2cpu_print.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
+# python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
+#python3 plot_2cpu_print.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_FSBTA docDist_2cpu_regular
 #python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise docDist_2cpu_regular
 #python3 plot_2cpu.py $GEM5_ROOT/eval_scripts/simu_simple/results/ docDist_2cpu_DAGguise
+python3 plot_8cpu.py $GEM5_ROOT/eval_scripts/simu_simple_multi/results/ docDist_8cpu_DAGguise docDist_8cpu_FSBTA docDist_8cpu_regular
+
 cd -

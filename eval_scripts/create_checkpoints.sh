@@ -49,33 +49,33 @@ wait_for_available_core() {
     done
 }
 
-echo "Creating 1-Core Checkpoints for 15 Benchmarks"                               # 1core
-#for bmk in namd_r leela_r exchange2_r xz_r x264_r fotonik3d_r; do
-#for bmk in perlbench_r gcc_r bwaves_r mcf_r cactuBSSN_r namd_r povray_r lbm_r wrf_r\
-#   blender_r deepsjeng_r imagick_r leela_r nab_r exchange2_r roms_r xz_r parest_r; do
-#for bmk in cam4_r fotonik3d_r x264_r cactuBSSN_r namd_r povray_r lbm_r wrf_r\
-#   blender_r deepsjeng_r leela_r nab_r exchange2_r roms_r xz_r; do
-for bmk in blender_r cactuBSSN_r deepsjeng_r exchange2_r fotonik3d_r lbm_r leela_r nab_r namd_r povray_r roms_r wrf_r x264_r xz_r; do
-   NUM=$(grep "$bmk" benchmarks.csv | cut -d "," -f 2 | tr -d '\r')
-   if [ -z "$NUM" ]; then
-       echo "No checkpoint number found for benchmark $bmk in benchmarks.csv"
-       continue
-   fi
+# echo "Creating 1-Core Checkpoints for 15 Benchmarks"                               # 1core
+# #for bmk in namd_r leela_r exchange2_r xz_r x264_r fotonik3d_r; do
+# #for bmk in perlbench_r gcc_r bwaves_r mcf_r cactuBSSN_r namd_r povray_r lbm_r wrf_r\
+# #   blender_r deepsjeng_r imagick_r leela_r nab_r exchange2_r roms_r xz_r parest_r; do
+# #for bmk in cam4_r fotonik3d_r x264_r cactuBSSN_r namd_r povray_r lbm_r wrf_r\
+# #   blender_r deepsjeng_r leela_r nab_r exchange2_r roms_r xz_r; do
+# for bmk in blender_r cactuBSSN_r deepsjeng_r exchange2_r fotonik3d_r lbm_r leela_r nab_r namd_r povray_r roms_r wrf_r x264_r xz_r; do
+#    NUM=$(grep "$bmk" benchmarks.csv | cut -d "," -f 2 | tr -d '\r')
+#    if [ -z "$NUM" ]; then
+#        echo "No checkpoint number found for benchmark $bmk in benchmarks.csv"
+#        continue
+#    fi
 
-   if [ $qsub -gt 0 ]; then
-	echo "enter in qsub 1"    
-       #echo "./ckptscript.sh $bmk 1 2017 $NUM" >> $qsub_cmdfile
-       echo "./ckptscript.sh $bmk 1 2017 25" >> $qsub_cmdfile
-       #echo "./ckptscript.sh $bmk 1 2017 50" >> $qsub_cmdfile
-   else
-	echo "enter to wait for available core 1"
-       wait_for_available_core
-       #./ckptscript.sh $bmk 1 2017 $NUM &
-      # ./ckptscript.sh $bmk 1 2017 50 &               # 50Mn
-      ./ckptscript.sh $bmk 1 2017 25 &               # 25Bn
-       #./ckptscript.sh $bmk 2 2017 1 &               # 1Mn
-   fi
-done
+#    if [ $qsub -gt 0 ]; then
+# 	echo "enter in qsub 1"    
+#        #echo "./ckptscript.sh $bmk 1 2017 $NUM" >> $qsub_cmdfile
+#        echo "./ckptscript.sh $bmk 1 2017 25" >> $qsub_cmdfile
+#        #echo "./ckptscript.sh $bmk 1 2017 50" >> $qsub_cmdfile
+#    else
+# 	echo "enter to wait for available core 1"
+#        wait_for_available_core
+#        #./ckptscript.sh $bmk 1 2017 $NUM &
+#       # ./ckptscript.sh $bmk 1 2017 50 &               # 50Mn
+#       ./ckptscript.sh $bmk 1 2017 25 &               # 25Bn
+#        #./ckptscript.sh $bmk 2 2017 1 &               # 1Mn
+#    fi
+# done
 
 
 #echo "Creating 2-Core Checkpoints for 15 Benchmarks"
@@ -102,33 +102,33 @@ done
 #    fi
 #done
 #
-# echo "Creating 4-Core Checkpoints for 15 Benchmarks"
-# #for bmk in namd_r leela_r exchange2_r xz_r x264_r fotonik3d_r; do
-# #for bmk in perlbench_r gcc_r bwaves_r mcf_r cactuBSSN_r namd_r povray_r lbm_r wrf_r\
-# #   blender_r deepsjeng_r imagick_r leela_r nab_r exchange2_r roms_r xz_r parest_r; do
-# #for bmk in exchange2_r; do
-# for bmk in exchange2; do
-#     NUM=$(grep "$bmk" benchmarks.csv | cut -d "," -f 2 | tr -d '\r')
-#     if [ -z "$NUM" ]; then
-#         echo "No checkpoint number found for benchmark $bmk in benchmarks.csv"
-#         continue
-#     fi
+echo "Creating 4-Core Checkpoints for 14 Benchmarks"
+#for bmk in namd_r leela_r exchange2_r xz_r x264_r fotonik3d_r; do
+#for bmk in perlbench_r gcc_r bwaves_r mcf_r cactuBSSN_r namd_r povray_r lbm_r wrf_r\
+#   blender_r deepsjeng_r imagick_r leela_r nab_r exchange2_r roms_r xz_r parest_r; do
+# for bmk in blender_r cactuBSSN_r deepsjeng_r exchange2_r fotonik3d_r lbm_r leela_r nab_r namd_r povray_r roms_r wrf_r x264_r xz_r; do
+for bmk in xz_r; do
+    #NUM=$(grep "$bmk" benchmarks.csv | cut -d "," -f 2 | tr -d '\r')
+    # if [ -z "$NUM" ]; then
+    #     echo "No checkpoint number found for benchmark $bmk in benchmarks.csv"
+    #     continue
+    # fi
 
-#     if [ $qsub -gt 0 ]; then
-# 	echo "enter in qsub 4"    
-#         #echo "./ckptscript.sh $bmk 4 2017 $NUM" >> $qsub_cmdfile
-#         #echo "./ckptscript.sh $bmk 4 2017 25" >> $qsub_cmdfile
-#         echo "./ckptscript.sh $bmk 4 2017 10" >> $qsub_cmdfile
-#         #echo "./ckptscript.sh $bmk 4 2017 1" >> $qsub_cmdfile
-#     else
-# 	echo "enter to wait for available core 4"
-#         wait_for_available_core
-#         #./ckptscript.sh $bmk 4 2017 $NUM &
-#         #./ckptscript.sh $bmk 4 2017 25 &               # 25Bn
-#         #./ckptscript.sh $bmk 4 2017 50 &               # 50Mn
-#         ./ckptscript.sh $bmk 4 2017 10 &               # 10Mn
-#     fi
-# done
+    if [ $qsub -gt 0 ]; then
+	echo "enter in qsub 4"    
+        #echo "./ckptscript.sh $bmk 4 2017 $NUM" >> $qsub_cmdfile
+        #echo "./ckptscript.sh $bmk 4 2017 25" >> $qsub_cmdfile
+        echo "./ckptscript.sh $bmk 4 2017 50" >> $qsub_cmdfile
+        #echo "./ckptscript.sh $bmk 4 2017 1" >> $qsub_cmdfile
+    else
+	echo "enter to wait for available core 4"
+        wait_for_available_core
+        #./ckptscript.sh $bmk 4 2017 $NUM &
+        #./ckptscript.sh $bmk 4 2017 25 &               # 25Bn
+        ./ckptscript.sh $bmk 2 2017 50           # 50Mn
+        #./ckptscript.sh $bmk 4 2017 10 &               # 10Mn
+    fi
+done
 
 #
 #echo "Creating 8-Core Checkpoints for 15 Benchmarks"

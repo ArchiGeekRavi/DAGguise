@@ -28,29 +28,34 @@ merged_dir_prefix="merged_checkpoint_"
 #==========================================================================================================
 
 # Array of SPEC benchmark names
+# spec_benchmarks=(
+#     "blender_r"
+#     "cactuBSSN_r"
+#     "deepsjeng_r"
+#     "exchange2_r"
+#     "fotonik3d_r"
+#     "lbm_r"
+#     "leela_r"
+#     "nab_r"
+#     "namd_r"
+#     "povray_r"
+#     "roms_r"
+#     "wrf_r"
+#     "x264_r"
+#     "xz_r"
+# )
+
 spec_benchmarks=(
-    "blender_r"
-    "cactuBSSN_r"
-    "deepsjeng_r"
-    "exchange2_r"
-    "fotonik3d_r"
-    "lbm_r"
-    "leela_r"
-    "nab_r"
-    "namd_r"
-    "povray_r"
-    "roms_r"
-    "wrf_r"
-    "x264_r"
     "xz_r"
 )
 
 # Change if desired
-victim_checkpoint="$GEM5_ROOT/checkpoint/docdist/cpt.1293351707616/"
+# victim_checkpoint="$GEM5_ROOT/checkpoint/docdist/singlecore/cpt.1285668711966/"
+victim_checkpoint="$GEM5_ROOT/checkpoint/dna/singlecore/cpt.1764360265758/"
 
 [ ! -d "$victim_checkpoint" ] && echo "Specified checkpoint doesn't exist! The checkpoint pointer in this script may need to be updated to point to the correct path/tick id." && exit 1
 
-cd "$GEM5_ROOT/checkpoint_merge/"
+cd "$GEM5_ROOT/checkpoint_merge_singlecore_dna_xz/"
 
 export GEM5_ROOT
 

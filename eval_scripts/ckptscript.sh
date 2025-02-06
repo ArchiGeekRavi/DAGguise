@@ -45,78 +45,78 @@ fi
 n=3
 # RUN CONFIG
 
-# if [ "$NUM_CORES" -eq 1 ]; then                                          #1core
-#     CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn"
-#     #CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn_open_policy"
-#     #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
-#     echo "$CHECKPOINT_CONFIG"
-#     INST_TAKE_CHECKPOINT="${NUM_PART}000000"
-#     echo "#################### $INST_TAKE_CHECKPOINT"
-#     MEM_SIZE="4GB"
-# elif [ "$NUM_CORES" -eq 2 ]; then
-#     CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn"
-#     #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
-#     echo "$CHECKPOINT_CONFIG"
-#     INST_TAKE_CHECKPOINT="${NUM_PART}000000"
-#     echo "#################### $INST_TAKE_CHECKPOINT"
-#     MEM_SIZE="4GB"
-# elif [ "$NUM_CORES" -eq 4 ]; then
-#     CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn"
-#     #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
-#     INST_TAKE_CHECKPOINT="${NUM_PART}000000"
-#     MEM_SIZE="4GB"
-#     echo "$CHECKPOINT_CONFIG"
-#     echo "################  $INST_TAKE_CHECKPOINT"
-# elif [ "$NUM_CORES" -eq 8 ]; then
-#     CHECKPOINT_CONFIG="multiprogram_8GBmem_${NUM_PART}Mn"
-#     #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_8GBmem_${NUM_PART}Mn"
-#     INST_TAKE_CHECKPOINT="${NUM_PART}000000"
-#     MEM_SIZE="8GB"
-#     echo "$CHECKPOINT_CONFIG"
-#     echo "################  $INST_TAKE_CHECKPOINT"
-# else
-#     CHECKPOINT_CONFIG="multiprogram_16GBmem_${NUM_PART}Mn"
-#     INST_TAKE_CHECKPOINT="${NUM_PART}000000"
-#     MEM_SIZE="16GB"
-# fi
-
-
-
 if [ "$NUM_CORES" -eq 1 ]; then                                          #1core
-   CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Bn"
-   #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
-   echo "$CHECKPOINT_CONFIG"
-   INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
-   echo "#################### $INST_TAKE_CHECKPOINT"
-   MEM_SIZE="4GB"
+    CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn"
+    #CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn_open_policy"
+    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
+    echo "$CHECKPOINT_CONFIG"
+    INST_TAKE_CHECKPOINT="${NUM_PART}000000"
+    echo "#################### $INST_TAKE_CHECKPOINT"
+    MEM_SIZE="4GB"
 elif [ "$NUM_CORES" -eq 2 ]; then
-   CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Bn"
-   #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Bn"
-   echo "$CHECKPOINT_CONFIG"
-   INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
-   echo "#################### $INST_TAKE_CHECKPOINT"
-   MEM_SIZE="4GB"
+    CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Mn"
+    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
+    echo "$CHECKPOINT_CONFIG"
+    INST_TAKE_CHECKPOINT="${NUM_PART}000000"
+    echo "#################### $INST_TAKE_CHECKPOINT"
+    MEM_SIZE="4GB"
 elif [ "$NUM_CORES" -eq 4 ]; then
-   CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Bn"
-   #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Bn"
-   echo "$CHECKPOINT_CONFIG"
-   INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
-   echo "#################### $INST_TAKE_CHECKPOINT"
-   MEM_SIZE="4GB"
+    CHECKPOINT_CONFIG="multiprogram_8GBmem_${NUM_PART}Mn"
+    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
+    INST_TAKE_CHECKPOINT="${NUM_PART}000000"
+    MEM_SIZE="8GB"
+    echo "$CHECKPOINT_CONFIG"
+    echo "################  $INST_TAKE_CHECKPOINT"
 elif [ "$NUM_CORES" -eq 8 ]; then
-   CHECKPOINT_CONFIG="multiprogram_8GBmem_${NUM_PART}Bn"
-   #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_8GBmem_${NUM_PART}Bn"
-   INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
-   echo "$CHECKPOINT_CONFIG"
-   echo "################  $INST_TAKE_CHECKPOINT"
-   MEM_SIZE="8GB"
+    CHECKPOINT_CONFIG="multiprogram_8GBmem_${NUM_PART}Mn"
+    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_8GBmem_${NUM_PART}Mn"
+    INST_TAKE_CHECKPOINT="${NUM_PART}000000"
+    MEM_SIZE="8GB"
+    echo "$CHECKPOINT_CONFIG"
+    echo "################  $INST_TAKE_CHECKPOINT"
 else
-   CHECKPOINT_CONFIG="multiprogram_16GBmem_${NUM_PART}Bn"
-   #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_16GBmem_${NUM_PART}Bn"
-   INST_TAKE_CHECKPOINT="${NUM}000000000"
-   echo "################  $INST_TAKE_CHECKPOINT"
-   MEM_SIZE="16GB"
+    CHECKPOINT_CONFIG="multiprogram_16GBmem_${NUM_PART}Mn"
+    INST_TAKE_CHECKPOINT="${NUM_PART}000000"
+    MEM_SIZE="16GB"
 fi
+
+
+
+# if [ "$NUM_CORES" -eq 1 ]; then                                          #1core
+#    CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Bn"
+#    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Mn"
+#    echo "$CHECKPOINT_CONFIG"
+#    INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
+#    echo "#################### $INST_TAKE_CHECKPOINT"
+#    MEM_SIZE="4GB"
+# elif [ "$NUM_CORES" -eq 2 ]; then
+#    CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Bn"
+#    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Bn"
+#    echo "$CHECKPOINT_CONFIG"
+#    INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
+#    echo "#################### $INST_TAKE_CHECKPOINT"
+#    MEM_SIZE="4GB"
+# elif [ "$NUM_CORES" -eq 4 ]; then
+#    CHECKPOINT_CONFIG="multiprogram_4GBmem_${NUM_PART}Bn"
+#    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_4GBmem_${NUM_PART}Bn"
+#    echo "$CHECKPOINT_CONFIG"
+#    INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
+#    echo "#################### $INST_TAKE_CHECKPOINT"
+#    MEM_SIZE="4GB"
+# elif [ "$NUM_CORES" -eq 8 ]; then
+#    CHECKPOINT_CONFIG="multiprogram_8GBmem_${NUM_PART}Bn"
+#    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_8GBmem_${NUM_PART}Bn"
+#    INST_TAKE_CHECKPOINT="${NUM_PART}000000000"
+#    echo "$CHECKPOINT_CONFIG"
+#    echo "################  $INST_TAKE_CHECKPOINT"
+#    MEM_SIZE="8GB"
+# else
+#    CHECKPOINT_CONFIG="multiprogram_16GBmem_${NUM_PART}Bn"
+#    #CHECKPOINT_CONFIG="${BENCHMARK}_multiprogram_16GBmem_${NUM_PART}Bn"
+#    INST_TAKE_CHECKPOINT="${NUM}000000000"
+#    echo "################  $INST_TAKE_CHECKPOINT"
+#    MEM_SIZE="16GB"
+# fi
 
 
 MAX_INSTS=$((INST_TAKE_CHECKPOINT + 1)) #simulate till checkpoint instruction
@@ -153,7 +153,7 @@ fi
 #Set up based on path variables & configuration
 
 # Ckpt Dir
-CKPT_OUT_DIR=$CKPT_ROOT/${CHECKPOINT_CONFIG}.SPEC${SPEC_VERSION}.C${NUM_CORES}/$BENCHMARK-1-ref-x86
+CKPT_OUT_DIR=$CKPT_ROOT/${CHECKPOINT_CONFIG}.SPEC${SPEC_VERSION}.C${NUM_CORES}/$BENCHMARK
 echo "checkpoint directory: " $CKPT_OUT_DIR
 mkdir -p $CKPT_OUT_DIR
 
@@ -215,8 +215,8 @@ echo "" | tee -a $SCRIPT_OUT
 
 #PATH1="/opt/spec2017/benchspec/CPU/gcc/run/run_base_refrate_gem5_se-m64/bin"
 
-#echo "/opt/spec2017/benchspec/CPU/${BENCHMARK}/run/run_base_refrate_gem5_se-m64.0000"
-#cd "/opt/spec2017/benchspec/CPU/${BENCHMARK}/run/run_base_refrate_gem5_se-m64.0000"
+echo "/opt/spec2017/benchspec/CPU/${BENCHMARK}/run/run_base_refrate_gem5_se-m64.0000"
+cd "/opt/spec2017/benchspec/CPU/${BENCHMARK}/run/run_base_refrate_gem5_se-m64.0000"
 
 # #Launch Gem5:         multicore config checkpoint taken from PrIDE
 # $GEM5_ROOT/build/X86/gem5.opt \
@@ -246,6 +246,7 @@ $GEM5_ROOT/build/X86/gem5.opt \
     --outdir=$OUTPUT_DIR \
     $GEM5_ROOT/configs/example/se.py \
     --benchmark=$BENCHMARK \
+    --benchmarkcopies=2 \
     --cpu-type=AtomicSimpleCPU \
     --num-cpus=$NUM_CORES \
     --mem-type=DRAMSim2 \
@@ -253,7 +254,7 @@ $GEM5_ROOT/build/X86/gem5.opt \
     --l1d_assoc=8 --l1i_assoc=8 \
     --l2cache --l3cache \
     --l2_size=256kB --l2_assoc=16 \
-    --l3_size=1MB --l3_assoc=16 \
+    --l3_size=4MB --l3_assoc=16 \
     --cpu-clock=2.4GHz --sys-clock=2.4GHz \
     --mem-size=$MEM_SIZE --enabledramlog \
     --dramdeviceconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/ini/DDR3_micron_32M_8B_x8_sg125.ini \
@@ -261,8 +262,8 @@ $GEM5_ROOT/build/X86/gem5.opt \
 	--checkpoint-dir=$CKPT_OUT_DIR \
     --take-checkpoint=$INST_TAKE_CHECKPOINT --at-instruction \
     --maxinsts=$MAX_INSTS \
-    --prog-interval=300Hz \
-    >> $SCRIPT_OUT 2>&1 &
+    --prog-interval=300Hz 
+    #>> $SCRIPT_OUT 2>&1 &
 
     
 #$GEM5_ROOT/configs/example/se.py \

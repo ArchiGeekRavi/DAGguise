@@ -9,22 +9,12 @@ if [[ -z "$SPEC_ROOT" ]]; then
 fi
 
 # Change if desired
-# victim_checkpoint_docdist="$GEM5_ROOT/checkpoint/docdist/cpt.1285668325407/"             # docdist checkpoint
-# victim_checkpoint_dna="$GEM5_ROOT/checkpoint/dna/singlecore/cpt.1764360265758/"             # dna checkpoint
-victim_checkpoint_mm="$GEM5_ROOT/checkpoint/mm/singlecore/cpt.212663187888/"             # mm checkpoint
+victim_checkpoint="$GEM5_ROOT/checkpoint/docdist/cpt.1285668325407/"
+unprotected_checkpoint="$SPEC_ROOT/ckpt/bwaves_r/cpt.None.SIMP-0/"
 
+[ ! -d $victim_checkpoint ] && echo "Specified checkpoint doesn't exist! The checkpoint pointer in this script may need to be updated to point to the correct path/tick id." && exit 1
 
-unprotected_checkpoint="$GEM5_ROOT/ckpt/xz_r/cpt.None.SIMP-50000000/"
-unprotected_checkpoint_1="$GEM5_ROOT/ckpt/blender_r/cpt.None.SIMP-50000000/"
-
-
-# [ ! -d $victim_checkpoint_dna ] && echo "Specified checkpoint doesn't exist! The checkpoint pointer in this script may need to be updated to point to the correct path/tick id." && exit 1
-
-# [ ! -d $victim_checkpoint_docdist ] && echo "Specified checkpoint doesn't exist! The checkpoint pointer in this script may need to be updated to point to the correct path/tick id." && exit 1
-
-[ ! -d $victim_checkpoint_mm ] && echo "Specified checkpoint doesn't exist! The checkpoint pointer in this script may need to be updated to point to the correct path/tick id." && exit 1
-
-cd $GEM5_ROOT/checkpoint_merge_mm/
+cd $GEM5_ROOT/checkpoint_merge/
 export GEM5_ROOT
-bash generateMerge_single.sh merged_checkpoint/cpt.None.SIMP-0/ $unprotected_checkpoint $victim_checkpoint_mm
+bash generateMerge_single.sh merged_checkpoint/cpt.None.SIMP-0/ $unprotected_checkpoint $victim_checkpoint
 cd -

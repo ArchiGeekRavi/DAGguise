@@ -21,10 +21,14 @@ benchmark_name = sys.argv[2]          # Benchmark name
 template_name = os.path.basename(template_script).replace(".sh", "")  # Get base name and remove ".sh"
 
 # Paths
+# ckptdir = os.path.join(gem5root, f"checkpoint_merge_singlecore_dna_xz/merged_checkpoint_{benchmark_name}")
 ckptdir = os.path.join(gem5root, f"checkpoint_merge/merged_checkpoint_{benchmark_name}")
 resultsdir_base = os.path.join(gem5root, f"eval_scripts/simu_simple/results/{template_name}")
 resultsdir = os.path.join(resultsdir_base, benchmark_name)  # Result directory for this benchmark
 os.makedirs(resultsdir, exist_ok=True)
+
+# Define the output log file
+script_out = os.path.join(resultsdir, "runscript.log")
 
 # Script setup
 runscriptFile = 'runscript.sh'
@@ -38,6 +42,7 @@ with open(runscriptFile, "a+") as runHandle:
     runHandle.write(f'\t--benchmark={benchmark_name} \\\n')
     runHandle.write(f'\t--simpt-ckpt=0 \\\n')  # Default checkpoint number is 0
     runHandle.write(f'\t--dramsim2outputfile={resultsdir}/dram \\\n')
+    runHandle.write(f'\t> {script_out} 2>&1 \\\n')
 
 # Replace placeholder in the template and make the script executable
 subprocess.call(["sed", "-i", "-e", f's|OUTDIR_REPLACE|{resultsdir}|g', runscriptFile])
