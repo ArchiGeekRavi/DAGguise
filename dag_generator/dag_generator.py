@@ -69,7 +69,7 @@ if __name__ == '__main__':
   parser.add_argument("--wbratio", type=int, default=11, help="How many phases should we go before writing?")
   parser.add_argument("--numphase", type=int, default=100, help="Number of Phases")
   parser.add_argument("--numbanks", type=int, default=8, help="Number of DRAM Banks")
-  parser.add_argument("--outputfile", type=str, default="defense.json", help="DAG output file name")
+  parser.add_argument("--outputfile", type=str, default="defense_new.json", help="DAG output file name")
 
   args = parser.parse_args()
   
