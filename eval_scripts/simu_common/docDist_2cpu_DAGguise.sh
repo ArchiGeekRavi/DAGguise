@@ -12,7 +12,7 @@ $GEM5_ROOT/build/X86/gem5.opt \
 	--l2_size=256kB --l2_assoc=16 \
 	--l3_size=2MB --l3_assoc=16 \
         --cpu-clock=2.4GHz --sys-clock=2.4GHz \
-        --checkpoint-restore=1 --at-instruction --maxinsts=50000000 --warmup-insts=1000000 --standard-switch=1000000 \
+        --checkpoint-restore=1 --at-instruction --maxinsts=50000 --warmup-insts=10000 --standard-switch=10000 \
 	--mem-size=4GB --enabledramlog \
         --dramdeviceconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/ini/DDR3_micron_32M_8B_x8_sg125.ini \
         --dramsystemconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/configs/system_dag_multi_closedrow.ini \
