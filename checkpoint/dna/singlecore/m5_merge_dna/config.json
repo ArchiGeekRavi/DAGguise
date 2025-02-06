@@ -1025,7 +1025,7 @@
                 "name": "mem_ctrls", 
                 "p_state_clk_gate_bins": 20, 
                 "kvm_map": true, 
-                "systemConfigFile": "/home/user/dagguise/ext/dramsim2/DRAMSim2/system_reg.ini", 
+                "systemConfigFile": "/home/user/dagguise/ext/dramsim2/DRAMSim2/configs/system_reg_multi.ini", 
                 "range": "0:4294967296"
             }
         ], 

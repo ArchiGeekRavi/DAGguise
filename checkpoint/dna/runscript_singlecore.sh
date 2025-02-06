@@ -16,7 +16,7 @@ $GEM5_ROOT/build/X86/gem5.opt \
         --cpu-clock=2.4GHz --sys-clock=2.4GHz \
 	--mem-size=4GB --enabledramlog \
         --dramdeviceconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/ini/DDR3_micron_32M_8B_x8_sg125.ini \
-        --dramsystemconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/system_reg.ini \
+        --dramsystemconfigfile=$GEM5_ROOT/ext/dramsim2/DRAMSim2/configs/system_reg_multi.ini \
 	-c "$GEM5_ROOT/sample_programs/dna/src/mrsfast" \
         -o "--search $GEM5_ROOT/sample_programs/dna/dataset/chr3_50K.fa --seq $GEM5_ROOT/sample_programs/dna/readSimulator/chr3_50K_2000.fq" \
 	--checkpoint-dir=$GEM5_ROOT/checkpoint/dna/singlecore \

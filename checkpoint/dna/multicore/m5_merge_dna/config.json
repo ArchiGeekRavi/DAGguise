@@ -111,7 +111,7 @@
         "clk_domain": {
             "name": "clk_domain", 
             "clock": [
-                333
+                417
             ], 
             "init_perf_level": 0, 
             "voltage_domain": "system.voltage_domain", 
@@ -122,7 +122,7 @@
             "domain_id": -1
         }, 
         "mem_ranges": [
-            "0:4294967296"
+            "0:8589934592"
         ], 
         "eventq_index": 0, 
         "work_begin_cpu_id_exit": -1, 
@@ -159,7 +159,7 @@
         "cpu_clk_domain": {
             "name": "cpu_clk_domain", 
             "clock": [
-                333
+                417
             ], 
             "init_perf_level": 0, 
             "voltage_domain": "system.cpu_voltage_domain", 
@@ -816,7 +816,7 @@
                 "workload": [
                     {
                         "uid": 100, 
-                        "pid": 100, 
+                        "pid": 104, 
                         "kvmInSE": false, 
                         "cxx_class": "Process", 
                         "executable": "/home/user/dagguise/sample_programs/dna/src/mrsfast", 
@@ -828,7 +828,7 @@
                         "maxStackSize": 67108864, 
                         "ppid": 0, 
                         "type": "Process", 
-                        "cwd": "/home/user/dagguise/sample_programs/dna/src", 
+                        "cwd": "/home/user/dagguise/checkpoint/dna", 
                         "pgid": 100, 
                         "simpoint": 0, 
                         "euid": 100, 
@@ -1624,7 +1624,7 @@
                 "workload": [
                     {
                         "uid": 100, 
-                        "pid": 101, 
+                        "pid": 105, 
                         "kvmInSE": false, 
                         "cxx_class": "Process", 
                         "executable": "/home/user/dagguise/sample_programs/dna/src/mrsfast", 
@@ -1636,7 +1636,7 @@
                         "maxStackSize": 67108864, 
                         "ppid": 0, 
                         "type": "Process", 
-                        "cwd": "/home/user/dagguise/sample_programs/dna/src", 
+                        "cwd": "/home/user/dagguise/checkpoint/dna", 
                         "pgid": 100, 
                         "simpoint": 0, 
                         "euid": 100, 
@@ -1837,8 +1837,8 @@
                 "name": "mem_ctrls", 
                 "p_state_clk_gate_bins": 20, 
                 "kvm_map": true, 
-                "systemConfigFile": "/home/user/dagguise/ext/dramsim2/DRAMSim2/system_reg.ini", 
-                "range": "0:4294967296"
+                "systemConfigFile": "/home/user/dagguise/ext/dramsim2/DRAMSim2/configs/system_reg_multi.ini", 
+                "range": "0:8589934592"
             }
         ], 
         "num_work_ids": 16, 
