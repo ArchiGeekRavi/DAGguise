@@ -175,13 +175,24 @@ elif options.cmd:
 
 
 elif options.benchmark:
-    process = getattr(benchmarks, options.benchmark, None)
-    if not process:
-        print("Unknown workload specified. Exiting!\n", file=sys.stderr)
-        sys.exit(1)
-    else:
-        multiprocesses.append(process)
-        numThreads = 1
+    #@Ravi: This is the case where we are running multiple copies of the same benchmark
+    for i in range(options.benchmarkcopies):
+            benchname = options.benchmark
+            if i > 0: benchname = benchname + '_' + str(i)
+            process = getattr(benchmarks, benchname, None)
+            if not process:
+                print("Unknown workload specified. Exiting!\n", file=sys.stderr)
+                sys.exit(1)
+            else:
+                multiprocesses = [process] + multiprocesses
+                numThreads = 1
+    # process = getattr(benchmarks, options.benchmark, None)
+    # if not process:
+    #     print("Unknown workload specified. Exiting!\n", file=sys.stderr)
+    #     sys.exit(1)
+    # else:
+    #     multiprocesses.append(process)
+    #     numThreads = 1
 else:
     print("No workload specified. Exiting!\n", file=sys.stderr)
     sys.exit(1)
@@ -195,10 +206,22 @@ if options.smt and options.num_cpus > 1:
     fatal("You cannot use SMT with multiple CPUs!")
 
 np = options.num_cpus
+
+# @Debug Ravi
+# print("Debug: CPUClass = ", CPUClass)
+# print("CPUClass(cpu_id=0) = ", CPUClass(cpu_id=0))
+# print("CPUClass(cpu_id=4) = ", CPUClass(cpu_id=4))
+# print("CPUClass(cpu_id=i) for i in range(np)", [CPUClass(cpu_id=i) for i in range(np)])
+# print("cpu = [CPUClass(cpu_id=i) for i in range(np)]", cpu = [CPUClass(cpu_id=i) for i in range(np)])
+
 system = System(cpu = [CPUClass(cpu_id=i) for i in range(np)],
                 mem_mode = test_mem_mode,
                 mem_ranges = [AddrRange(options.mem_size)],
                 cache_line_size = options.cacheline_size)
+# print("Debug: system = ", system)
+# print("Debug: system.cpu = ", system.cpu)
+# print("Debug: system.cpu[0] = ", system.cpu[0])
+# print("Debug: system.cpu[4] = ", system.cpu[4])
 
 if numThreads > 1:
     system.multi_thread = True
@@ -302,4 +325,15 @@ else:
     config_filesystem(system, options)
 
 root = Root(full_system = False, system = system)
+
+# print("Debug: root = ", root)
+# print("Debug: system = ", system)
+# print("Debug: system.cpu = ", system.cpu)
+# print("Debug: system.cpu[0] = ", system.cpu[0])
+# print("Debug: system.cpu[0].workload = ", system.cpu[0].workload)
+# print("Debug: system.cpu[0].workload.cmd = ", system.cpu[0].workload.cmd)
+# print("Debug: system.cpu[1] = ", system.cpu[1])
+# print("Debug: system.cpu[1].workload = ", system.cpu[1].workload)
+# print("Debug: system.cpu[1].workload.cmd = ", system.cpu[1].workload.cmd)
+
 Simulation.run(options, root, system, FutureClass)

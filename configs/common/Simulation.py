@@ -435,6 +435,9 @@ def repeatSwitch(testsys, repeat_switch_cpu_list, maxtick, switch_freq):
             return exit_event
 
 def run(options, root, testsys, cpu_class):
+    print("Entering run()")
+    print("cpu_class: %s" % (cpu_class))
+
     if options.checkpoint_dir:
         cptdir = options.checkpoint_dir
     elif m5.options.outdir:
@@ -659,9 +662,17 @@ def run(options, root, testsys, cpu_class):
     if options.checkpoint_restore != None and maxtick < cpt_starttick:
         fatal("Bad maxtick (%d) specified: " \
               "Checkpoint starts starts from tick: %d", maxtick, cpt_starttick)
+        
+    print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 
     if options.standard_switch or cpu_class:
         if options.standard_switch:
+            print("testsys %s" % (testsys))
+            print("testsys.cpu %s" % (testsys.cpu))
+            print("testsys.cpu[0] %s" % (testsys.cpu[0]))
+            print("testsys.cpu[1] %s" % (testsys.cpu[1]))
+            print("testsys.cpu[0].max_insts_any_thread %s" % (testsys.cpu[0].max_insts_any_thread))
+            
             print("Switch at instruction count:%s" %
                     str(testsys.cpu[0].max_insts_any_thread))
             exit_event = m5.simulate()
@@ -672,6 +683,13 @@ def run(options, root, testsys, cpu_class):
         else:
             print("Switch at curTick count:%s" % str(10000))
             exit_event = m5.simulate(10000)
+            
+        #@Ravi: Debugging
+        print("print option.standard_switch: %s" % (options.standard_switch))
+        print("print cpu_class: %s" % (cpu_class))
+        print("print option.standard_switch or cpu_class: %s" % (options.standard_switch or cpu_class))
+
+
         print("Switched CPUS @ tick %s" % (m5.curTick()))
 
         m5.switchCpus(testsys, switch_cpu_list)
