@@ -69,6 +69,9 @@ DRAMSim2::DRAMSim2(const Params *p) : AbstractMemory(p),
             this, &DRAMSim2::writeComplete);
     wrapper.setCallbacks(read_cb, write_cb);
 
+    //@Ravi: printing to check
+    printf("Entered!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+
     // Register a callback to compensate for the destructor not
     // being called. The callback prints the DRAMSim2 stats.
     Callback *cb = new MakeCallback<DRAMSim2Wrapper,
@@ -334,12 +337,6 @@ void DRAMSim2::accessAndRespond(PacketPtr pkt)
 
 void DRAMSim2::readComplete(unsigned id, uint64_t addr, uint64_t cycle)
 {
-    // DPRINTF(DRAMSim2, "curTick: %lld, startTick: %lld, cycle: %lld, clockPeriod: %f\n",
-    //     curTick(), startTick, cycle, wrapper.clockPeriod());
-
-    printf("DEBUG: curTick: %lu, startTick: %lu, cycle: %lu, clockPeriod: %f\n",
-           curTick(), startTick, cycle, wrapper.clockPeriod());
-
     assert(cycle == divCeil(curTick() - startTick,
                             wrapper.clockPeriod() * SimClock::Int::ns));
 

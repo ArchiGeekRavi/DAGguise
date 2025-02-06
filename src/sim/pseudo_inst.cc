@@ -351,6 +351,10 @@ void
 m5startdefence(ThreadContext *tc)
 {
     DPRINTF(PseudoInst, "Starting defence on memory, %d/%d\n", tc->getCpuPtr()->instMasterId(), tc->getCpuPtr()->dataMasterId());
+
+    //@Ravi: Start
+    printf("Starting defence on memory (DRAMSim2), %d/%d/%d\n", tc->getCpuPtr()->cpuId(), tc->getCpuPtr()->instMasterId(), tc->getCpuPtr()->dataMasterId());
+
     ((DRAMSim2*) tc->getCpuPtr()->system->getPhysMem().memories[0])->startDefence(tc->getCpuPtr()->cpuId(), tc->getCpuPtr()->instMasterId(), tc->getCpuPtr()->dataMasterId());
 }
 

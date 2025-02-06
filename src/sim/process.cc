@@ -398,6 +398,8 @@ Process::serialize(CheckpointOut &cp) const
      * come back and fix them at a later date.
      */
 
+    printf("serializing process\n");
+
     warn("Checkpoints for file descriptors currently do not work.");
 }
 
@@ -410,6 +412,8 @@ Process::unserialize(CheckpointIn &cp)
      * Checkpoints for file descriptors currently do not work. Need to
      * come back and fix them at a later date.
      */
+
+    printf("unserializing process\n");
     warn("Checkpoints for file descriptors currently do not work.");
     // The above returns a bool so that you could do something if you don't
     // find the param in the checkpoint if you wanted to, like set a default
